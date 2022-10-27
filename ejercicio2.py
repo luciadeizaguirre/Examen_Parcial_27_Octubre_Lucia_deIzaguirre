@@ -17,8 +17,5 @@ def buscar(numero):
         else:
             print(-1)
     return buscar
-    
-if __name__=="__main__":
-    import doctest
-    doctest.testmod()
+
 
