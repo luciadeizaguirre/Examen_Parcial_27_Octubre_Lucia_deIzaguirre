@@ -53,6 +53,29 @@ class Polinomio():
                 return polinomio_aux
     def dividir(polinomio1, polinomio2):
         mayor = polinomio1 if (polinomio1.grado > polinomio2.grado) else polinomio2:
+        for i in range(0,mayor.grado+1):
+
+    def eliminar_termino(polinomio,valor,grado):
+        grado=polinomio.grado
+        valor=polinomio.valor
+        eliminar=int(input("Introduzca el termino que quiere eliminar: "))
+        if eliminar==grado:
+            polinomio.grado=0
+            return str(polinomio.valor) + "x^" +str(polinomio.grado)
+    def buscar(polinomio):
+        aux=Nodo()
+        aux.informacion=polinomio
+        grado=polinomio.grado
+        valor=polinomio.valor
+        for polinomio in Polinomio:
+            buscar=input(f"Introduzca el polinomio a buscar {polinomio.grado}")
+            polinomio=buscar
+            polinomio_buscar=polinomio.crear_termino
+            if polinomio_buscar in Polinomio:
+                print(f"El polinomio {polinomio_buscar} ha sido encontrado")
+            else:
+                print(f"El polinomio {polinomio_buscar} no se ha encontrado")
+            
         
 
 
