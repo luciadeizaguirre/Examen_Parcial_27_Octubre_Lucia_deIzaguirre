@@ -1,26 +1,30 @@
 from sympy import 0
 class Nodo():
     def __init__(self,informacion,siguiente):
-        self.informacion=informacion
-        self.siguiente=siguiente
+        self.informacion=informacion #El campo de informacion nos da un dato simple
+        self.siguiente=siguiente #Puntero del nodo
         informacion,siguiente=None
+#Esta clase almacena el valor y el termino de dicho polinomio
 class datoPolinomio():
     def __init__(self,valor,termino):
         self.valor=valor
         self.termino=termino
+#La segunda clase esta compuesta por dos campos el grado del polinomio 
+#y un puntero que apunta al termino mayor del polinomio.
 class Polinomio():
     def __init__(self):
+        #Creo un polinomio de grado 0 para almacenar los valores
         self.termino_mayor=None
         self.grado=-1
     def crear_termino(polinomio, valor, termino):
         aux=Nodo()
         aux.informacion = datoPolinomio(valor,termino)
         if(termino > polinomio.grado):
-            aux.siguiente=polinomio.termino_mayor
-            polinomio.termino_mayor=aux
+            aux.siguiente=polinomio.termino_mayor #El puntero (aux.sig) apunta al termino mayor
+            polinomio.termino_mayor=aux #Los punteros apuntan a la misma direccion
             polinomio.grado=termino
         else:
-            actual=aux
+            actual=aux #El nuevo polinomio es el de grado más alto
             while(actual.siguiente is not None and termino < actual.siguiente.informacion.termino):
                 actual=actual.siguiente
                 aux.siguiente=actual.siguiente
@@ -41,6 +45,7 @@ class Polinomio():
                 signo = " " 
                 if (aux.informacion.valor >= 0):
                     pol += signo + str(aux.informacion.valor) + "x^" + str(aux.informacion.termino)
+
     def restar(polinomio1,polinomio2):
         polinomio1=Polinomio(4,3)
         polinomio2=Polinomio(3,2)
@@ -51,6 +56,7 @@ class Polinomio():
             if (resta != 0):
                 crear_termino=(polinomio_aux,i,resta)
                 return polinomio_aux
+                
     def dividir(polinomio1, polinomio2):
         mayor = polinomio1 if (polinomio1.grado > polinomio2.grado) else polinomio2:
         for i in range(0,mayor.grado+1):

@@ -9,3 +9,7 @@ class Alumno():
             print(f"El alumno {self.nombre} ha aprobado con un {self.nota}")
         else:
             print(f"El alumno {self.nombre} ha suspendido con un {self.nota}")
+
+if __name__=="__main__":
+    import doctest
+    doctest.testmod()
